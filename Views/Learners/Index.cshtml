@@ -1,0 +1,172 @@
+﻿@model IEnumerable<DrivingClass.Models.Learner>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3  style="Text-Align:center;">Welcome to learners page!</h3>
+<hr />
+<h5>Choose your Driver & Book an appointment</h5>
+
+<body class="Learnerbody">
+    
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="container py-5">
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Mr Ali</h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="~/images/img-1.jpeg" alt="driver image" />
+                        </div>
+                        <div class="card-footer">
+                            <h5> Two Wheller</h5>
+                            <h3>
+                                <a id="101" class="btn btn-info rounded-0" asp-action="Create" asp-route-id="1" >Book here</a>
+                            </h3>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="container py-5">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Mr,Eswar</h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="~/images/img-2.jpeg" alt="driver image" />
+                        </div>
+                        <div class="card-footer">
+                            <h5>Four Wheller-Cars </h5>
+                            <h3>
+                                <a id="102" class="btn btn-info rounded-0" asp-action="Create" asp-route-id="2" >Book here</a>
+                            </h3>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="container py-5">
+
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Mr.Long</h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="~/images/img-3.jpeg" alt="driver image" />
+                        </div>
+                        <div class="card-footer">
+                            <h5>Bus</h5>
+                            <h3>
+                                <a id="103" class="btn btn-info rounded-0" asp-action="Create" asp-route-id="3">Book here</a>
+                            </h3>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+                <div class="container py-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Mr,Aru</h5>
+                        </div>
+                        <div class="card-body">
+                            <img class="card-img" src="~/images/img-4.jpeg" alt="driver image" />
+                        </div>
+                        <div class="card-footer">
+                            <h5>Trucks </h5>
+                            <h3>
+                                <a id="104" class="btn btn-info rounded-0" asp-action="Create" asp-route-id="4">Book here</a>
+
+                            </h3>
+                            <td>
+                            </td>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            </div>
+
+              <br />
+        <hr />
+
+
+
+<  <table class="data table table-striped no-margin">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LearnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.End)
+            </th>
+          @*  <th>
+                @Html.DisplayNameFor(model => model.DriverName)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LearnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.End)
+            </td>
+          @*  <td>
+                @Html.DisplayFor(modelItem => item.DriverName)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LearnerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LearnerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LearnerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>

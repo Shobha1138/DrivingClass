@@ -1,0 +1,69 @@
+﻿@model DrivingClass.Models.Learner
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Learner</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @*<form asp-action="Create">*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">@*
+                 <label asp-for="DriverName" class="control-label"></label>*@
+                <select id="DoctorName" name="DoctorName">
+                    <option value="">--Select One--</option>
+                    <option value="1">Mr.Ali-Two Wheller</option>
+                    <option value="2">Mr.Eswar-Four wheller</option>
+                    <option value="3">Mr.Long-Bus</option>  
+                    <option value="4">Mr.Aru-Trucks</option>                                         
+                </select>  
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start" class="control-label"></label>
+                <input asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="End" class="control-label"></label>
+                <input asp-for="End" class="form-control" />
+                <span asp-validation-for="End" class="text-danger"></span>
+            </div>
+          @*  <div class="form-group">
+                <label asp-for="DriverName" class="control-label"></label>
+                <input asp-for="DriverName" class="form-control" />
+                <span asp-validation-for="DriverName" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <input type="hidden" name="driverId" value=ViewContext.RouteData.Values["id"] />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        @*</form>*@
+    </div>
+ <div class="col-md-4">
+        
+          <img class="card-img" src="~/images/appointment.jpeg" alt="driver image" />
+                       
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
